@@ -69,23 +69,36 @@ body {
 
 /* Siatka produktów */
 .grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 10px;
   padding: 10px;
-  max-width: 600px;
-  margin: 0 auto;
 }
 
-/* Karta produktu */
 .card {
-  background: white;
-  padding: 20px;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: 0.3s;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: calc(33.333% - 20px); /* 3 karty w rzędzie na większych ekranach */
+  max-width: 200px; /* Maksymalna szerokość karty */
+  min-width: 150px; /* Minimalna szerokość karty */
+  background-color: white;
+  padding: 15px;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
 }
+
+@media (max-width: 768px) {
+  .card {
+    width: calc(50% - 20px); /* 2 karty w rzędzie na tabletach */
+  }
+}
+
+@media (max-width: 480px) {
+  .card {
+    width: 100%; /* 1 karta na małych ekranach (np. telefony) */
+  }
+}
+
 
 .card:hover {
   background: #ddd;
