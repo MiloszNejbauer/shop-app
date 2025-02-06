@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./App.css";
 import { FaHome, FaSearch, FaHeart, FaShoppingCart, FaCheck } from "react-icons/fa";
 import { GiLipstick } from "react-icons/gi";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 
 const products = [
   { id: 1, name: "Produkt 1", price: "10 PLN" },
@@ -19,30 +19,30 @@ const products = [
 
 const App = () => {
   const [selectedProduct, setSelectedProduct] = useState(null);
-  const [purchaseMessage, setPurchaseMessage] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [purchaseComplete, setPurchaseComplete] = useState(false);
 
   const handleBuy = (product) => {
     setSelectedProduct(product);
-    setPurchaseMessage("");
+    setLoading(false);
+    setPurchaseComplete(false);
   };
 
   const confirmPurchase = () => {
-    setPurchaseMessage(FaCheck, "Zakup udany!");
+    setLoading(true);
+    setTimeout(() => {
+      setPurchaseComplete(true);
+      setLoading(false);
+    }, 2000);
   };
 
-  const closePopup = () => {
-    setSelectedProduct(null);
-    setPurchaseMessage("");
-  };
 
   return (
     <div className="app">
-      {/* Górny pasek */}
       <div className="header">
         <GiLipstick size={50} /> Beauty Market
       </div>
 
-      {/* Sekcja produktów */}
       <div className="container">
         <div className="grid">
           {products.map((product) => (
@@ -54,7 +54,6 @@ const App = () => {
         </div>
       </div>
 
-      {/* Dolny toolbar */}
       <div className="toolbar">
         <button>
           <FaHome size={30} />
@@ -74,26 +73,43 @@ const App = () => {
         </button>
       </div>
 
-      {/* Modal */}
       {selectedProduct && (
-        <div className="modal-overlay" onClick={closePopup}>
-          <div className="modal" onClick={(e) => e.stopPropagation()}>
-            <h2>{selectedProduct.name}</h2>
-            <p>{selectedProduct.price}</p>
-            {purchaseMessage ? (
-              <motion.p 
-                className="success-message" 
-                initial={{ y: -20, opacity: 0 }} 
-                animate={{ y: 0, opacity: 1 }} 
-                transition={{ duration: 0.7 }}
-              >
-                {purchaseMessage}
-              </motion.p>
-            ) : (
-              <button className="buy-btn" onClick={confirmPurchase}>Kup teraz!</button>
-            )}
+        <motion.div 
+          className="modal-overlay" 
+          initial={{ y: "100%" }} 
+          animate={{ y: 0 }} 
+          exit={{ y: "100%" }}
+          transition={{ duration: 0.5 }}
+        >
+          <div className="modal-content">
+            <AnimatePresence mode="wait">
+              {!loading && !purchaseComplete && (
+                <button className="buy-btn" onClick={confirmPurchase}>Kup teraz!</button>
+              )}
+              {loading && (
+                <motion.div 
+                  key="loading"
+                  className="loading-circle"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0, scale: 0.5 }}
+                  transition={{ duration: 0.5 }}
+                />
+              )}
+              {purchaseComplete && (
+                <motion.div 
+                  key="success"
+                  className="success-icon"
+                  initial={{ opacity: 0, scale: 0.5 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.5 }}
+                >
+                  <FaCheck size={50} color="green" />
+                </motion.div>
+              )}
+            </AnimatePresence>
           </div>
-        </div>
+        </motion.div>
       )}
     </div>
   );
