@@ -56,19 +56,19 @@ const App = () => {
 
       <div className="toolbar">
         <button>
-          <FaHome size={30} />
+          <FaHome size={20} />
           <br />Strona główna
         </button>
         <button>
-          <FaSearch size={30} />
+          <FaSearch size={20} />
           <br />Szukaj
         </button>
         <button>
-          <FaShoppingCart size={30} />
+          <FaShoppingCart size={20} />
           <br />Koszyk
         </button>
         <button>
-          <FaHeart size={30} />
+          <FaHeart size={20} />
           <br />Ulubione
         </button>
       </div>
