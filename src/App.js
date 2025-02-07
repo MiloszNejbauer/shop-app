@@ -39,7 +39,7 @@ const App = () => {
               <p>{product.price}</p>
               <AnimatePresence mode="wait">
                 {!loading && !purchaseComplete && (
-                  <button className="buy-btn" onClick={confirmPurchase}>KUP TERAZ!</button>
+                  <button className="buy-btn" onClick={confirmPurchase}>Kup Teraz!</button>
                 )}
                 {loading && (
                   <motion.div 
@@ -59,7 +59,7 @@ const App = () => {
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 0.5 }}
                   >
-                    <FaCheck size={60} color="green" />
+                    <FaCheck size={50} color="green" />
                   </motion.div>
                 )}
               </AnimatePresence>
