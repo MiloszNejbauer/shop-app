@@ -6,7 +6,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import Twarz from "./Twarz.png";
 
 const products = [
-  { id: 1, name: "Produkt do pielęgnacji twarzy", price: "niezła facjata!", image: Twarz },
+  { id: 1, name: "Produkt do pielęgnacji twarzy", price: "Zadbaj o zdrowy wygląd twarzy!", image: Twarz },
 ];
 
 const App = () => {
