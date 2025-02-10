@@ -4,7 +4,7 @@ import { FaHome, FaSearch, FaHeart, FaShoppingCart, FaCheck } from "react-icons/
 // import { GiLipstick } from "react-icons/gi";
 import { motion, AnimatePresence } from "framer-motion";
 import Twarz from "./Twarz.png";
-import wallshop from "./wallshop.jpeg";
+import AstroBeautyShop from "./AstroBeautyShop.png";
 
 const products = [
   { id: 1, name: "Produkt do pielęgnacji twarzy", price: "Zadbaj o zdrowy wygląd twarzy!", image: Twarz },
@@ -29,7 +29,7 @@ const App = () => {
     <div className="app">
       <div className="header">
         {/* <GiLipstick size={50} /> Beauty Market */}
-        <img src={wallshop} alt=""className="logo-image" />
+        <img src={AstroBeautyShop} alt=""className="logo-image" />
       </div>
 
       <div className="container">
