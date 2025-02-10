@@ -71,10 +71,10 @@ const App = () => {
       </div>
 
       <div className="toolbar">
-        <button><FaHome size={20} /><br />Strona główna</button>
-        <button><FaSearch size={20} /><br />Szukaj</button>
-        <button><FaShoppingCart size={20} /><br />Koszyk</button>
-        <button><FaHeart size={20} /><br />Ulubione</button>
+        <button><FaHome size={15} /><br />Strona główna</button>
+        <button><FaSearch size={15} /><br />Szukaj</button>
+        <button><FaShoppingCart size={15} /><br />Koszyk</button>
+        <button><FaHeart size={15} /><br />Ulubione</button>
       </div>
     </div>
   );
