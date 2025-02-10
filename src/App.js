@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import "./App.css";
 import { FaHome, FaSearch, FaHeart, FaShoppingCart, FaCheck } from "react-icons/fa";
-// import { GiLipstick } from "react-icons/gi";
+import { GiNestedEclipses } from "react-icons/gi";
 import { motion, AnimatePresence } from "framer-motion";
 import Twarz from "./Twarz.png";
-import AstroBeautyShop from "./AstroBeautyShop.png";
+import { TiThMenu } from "react-icons/ti";
 
 const products = [
   { id: 1, name: "Produkt do pielęgnacji twarzy", price: "Zadbaj o zdrowy wygląd twarzy!", image: Twarz },
@@ -28,8 +28,8 @@ const App = () => {
   return (
     <div className="app">
       <div className="header">
-        {/* <GiLipstick size={50} /> Beauty Market */}
-        <img src={AstroBeautyShop} alt=""className="logo-image" />
+      <TiThMenu size={40} className="menu-item"/>
+        <GiNestedEclipses size={40} className="logo-item"/>
       </div>
 
       <div className="container">
