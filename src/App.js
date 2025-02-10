@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import "./App.css";
 import { FaHome, FaSearch, FaHeart, FaShoppingCart, FaCheck } from "react-icons/fa";
-import { GiLipstick } from "react-icons/gi";
+// import { GiLipstick } from "react-icons/gi";
 import { motion, AnimatePresence } from "framer-motion";
 import Twarz from "./Twarz.png";
+import wallshop from "./wallshop.jpeg";
 
 const products = [
-  { id: 1, name: "Produkt do pielęgnacji twarzy", price: "niezła facjata!", image: Twarz },
+  { id: 1, name: "Produkt do pielęgnacji twarzy", price: "Zadbaj o zdrowy wygląd twarzy!", image: Twarz },
 ];
 
 const App = () => {
@@ -27,7 +28,8 @@ const App = () => {
   return (
     <div className="app">
       <div className="header">
-        <GiLipstick size={50} /> Beauty Market
+        {/* <GiLipstick size={50} /> Beauty Market */}
+        <img src={wallshop} alt=""className="logo-image" />
       </div>
 
       <div className="container">
